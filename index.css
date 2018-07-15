@@ -54,7 +54,7 @@ html, body {
     display: flex;
     position: absolute;
     top: 255px;
-    left: 170px;
+    left: 138px;
     z-index: 5; /* 按鈕在最上方 */
 }
 
