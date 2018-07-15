@@ -5,15 +5,17 @@ html, body {
 }
 
 .container {
-    display: flex;
     transform: translateX(0);
     transition: all 1s ease-in-out;
+    overflow: hidden;
+    font-size: 0; /* 消除inline元素的白色間隔 */
+    white-space: nowrap;
 }
 
 .size {
-    width: 600px;
+    display: inline-block; /* 水平排列 */
+    width: 400px;
     height: 300px;
-    
 }
 
 .blue {
@@ -32,24 +34,15 @@ html, body {
 /* 遮住右邊兩個圖 */
 .mask {
     height: 300px;
-    width: 100%;
-    display: flex;
+    width: 1200px;
     position: absolute;
+    background-color: white;
     top: 0;
-    left: 0;
+    left: 400px;
     z-index: 2;
 }
 
-.show {
-    width: 600px;
-    opacity: 0;
-}
-
-.unshow {
-    width: 1200px;
-    background-color: white;
-}
-
+/* 讓input隱藏 */
 #blue,
 #lightgreen,
 #brown {
@@ -62,9 +55,10 @@ html, body {
     position: absolute;
     top: 255px;
     left: 170px;
-    z-index: 5;
+    z-index: 5; /* 按鈕在最上方 */
 }
 
+/* 開關的樣式 */
 .switcher label{
     background-color: #ffffff;
     width: 20px;
@@ -75,7 +69,6 @@ html, body {
 .switcher label:last-child {
     margin-right: 0;
 }
-
 .switcher label:hover {
     cursor: pointer;
 }
@@ -86,8 +79,8 @@ html, body {
     transform: translateX(0);
 }
 #lightgreen:checked ~ .container {
-    transform: translateX(-480px);
+    transform: translateX(-400px);
 }
 #brown:checked ~ .container {
-    transform: translateX(-960px);
+    transform: translateX(-800px);
 }
