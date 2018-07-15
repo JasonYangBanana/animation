@@ -1,0 +1,93 @@
+
+/* 清除瀏覽器預設 */
+html, body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    transform: translateX(0);
+    transition: all 1s ease-in-out;
+}
+
+.size {
+    width: 600px;
+    height: 300px;
+    
+}
+
+.blue {
+    background-color: blue;
+}
+
+.lightgreen {
+    background-color: lightgreen;
+}
+
+.brown {
+    background-color: brown;
+}
+
+
+/* 遮住右邊兩個圖 */
+.mask {
+    height: 300px;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.show {
+    width: 600px;
+    opacity: 0;
+}
+
+.unshow {
+    width: 1200px;
+    background-color: white;
+}
+
+#blue,
+#lightgreen,
+#brown {
+    display: none;
+}
+
+/* 控制開關 */
+.switcher {
+    display: flex;
+    position: absolute;
+    top: 255px;
+    left: 170px;
+    z-index: 5;
+}
+
+.switcher label{
+    background-color: #ffffff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.switcher label:last-child {
+    margin-right: 0;
+}
+
+.switcher label:hover {
+    cursor: pointer;
+}
+
+/* 動畫效果 */
+
+#blue:checked ~ .container  {
+    transform: translateX(0);
+}
+#lightgreen:checked ~ .container {
+    transform: translateX(-480px);
+}
+#brown:checked ~ .container {
+    transform: translateX(-960px);
+}
